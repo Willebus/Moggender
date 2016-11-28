@@ -46,27 +46,52 @@ echo $selectedDay."<br/>";
         </tr>
         <tr>
           <?php
+          /* For loopen kollar först efter blanka rutor, det vill säga, om månaden börjar på en
+           * onsdag, så kommer den printa blanka rutor på måndag och tisdag.
+           */
           for($i = 0; $i <= $blank-1; $i++)
           {
-              echo"<td>Nope</td>";
-              $weekdayCount++;
-          }
-              while($weekdayCount <= 7) // Den printar ut dagarna i veckan och sätter siffra på det.
+              //Denna if sats finns för att sätta veckonummer, även om
+              if ($weekdayCount == 1)
               {
-                  echo "<td>".$dayNum."</td>";
+                  echo "<td>Nope ".($weekOfYear -1) ."</td>";
+                  $weekdayCount++;
+              }
+              else{
+                  echo"<td>Nope</td>";
+                  $weekdayCount++;
+              }
+
+          }
+
+          /* $weekdayCount är en räknare som räknar upp hur många dagar som gått i veckan
+           * När den kommit till veckans 7 dagar, gör den en ny rad
+           * Sedan kontrollerar den om $dayNum som är en räknare för att kolla hur många dagar
+           * man itererat igenom. När den nått hur många dagar det finns i månaden bryts while-loopen.
+           */
+          while($weekdayCount <= 7)
+          {
+              if ($weekdayCount == 1)
+              {
+                  echo "<td> dayOfMonth ".$dayNum." week ".$weekOfYear."</td>";
                   $weekdayCount++;
                   $dayNum++;
-                  if($weekdayCount == 8)
-                  {
-                      echo "</tr></tr>";
-                      $weekdayCount = 1;
-
-                  }
-                  if($dayNum == $daysInMonth+1)
-                  {
-                      break;
-                  }
+                  $weekOfYear++;
               }
+              echo "<td>".$dayNum."</td>";
+              $weekdayCount++;
+              $dayNum++;
+
+              if($weekdayCount == 8)
+              {
+                  echo "</tr></tr>";
+                  $weekdayCount = 1;
+              }
+              if($dayNum == $daysInMonth+1)
+              {
+                  break;
+              }
+          }
 
           ?>
         </tr>
