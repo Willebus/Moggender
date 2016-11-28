@@ -1,6 +1,7 @@
 <?php
     $page = "start.php";
-    if (isset($_REQUEST["page"])) {
+    if (isset($_REQUEST["page"]))
+    {
         $page = $_REQUEST["page"];
     }
 ?>
