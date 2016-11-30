@@ -94,4 +94,5 @@ echo $selectedDay . "<br/>";
         ?>
     </tr>
 </table>
+<a class="btn btn-sm btn-danger" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a>
 

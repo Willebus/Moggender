@@ -13,12 +13,12 @@ try {
     $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($rows > 0) {
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $username; //Sätter sessionens användarnamn
     } else {
         echo "Användare ej hittad!";
     }
 
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['username'])) { //Om sessionens användarnamn är satt så tar den dig till din kalender
         $username = $_SESSION['username'];
         header("Location: index.php?page=calendar.php");
         /*

@@ -10,7 +10,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         ":username" => $username,
         ":password" => $password
     ));
-    if ($result) {
+    if ($result) { //Sätter en alert, beroende på om dy lyckades eller inte
         $regsuccess = "Registrering lyckades!";
         header("Location: index.php?page=start.php");
     } else {
