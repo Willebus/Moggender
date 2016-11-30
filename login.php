@@ -1,40 +1,33 @@
 <?php
 require_once("connection.php");
 
-try
-{
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+try {
+    $username = isset($_POST["username"]) ? $_POST["username"] : "";
+    $password = isset($_POST["password"]) ? $_POST["password"] : "";
 
-    /*
-    if($username == "")
-    {
-        echo "Du måste skriva in ditt användarnamn";
-    }
-
-    if($password = "")
-    {
-       echo "Du måste skriva in ditt lösenord";
-    }
-    */
-
-    $stmt = $conn->prepare("SELECT * FROM user WHERE username = :username AND password = :password");
-    $stmt->bindParam(":username", $username);
-    $stmt->bindParam(":password", $password);
-    $stmt->execute();
+    $stmt = $conn->prepare("SELECT * FROM user WHERE Username = :username AND Password = :password");
+    $stmt->execute(array(
+        ":username" => $username,
+        ":password" => $password
+    ));
     $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($rows > 0)
-    {
-        header("Location: calendar.php");
-    }
-    else
-    {
+    if ($rows > 0) {
+        $_SESSION['username'] = $username;
+    } else {
         echo "Användare ej hittad!";
     }
-}
-catch(PDOException $e)
-{
+
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        header("Location: index.php?page=calendar.php");
+        /*
+        echo "Hejsan " . $username . "!";
+        echo "Detta betyder att du är inloggad!";
+        echo "<a href='logout.php'>Logga ut</a>";
+        */
+    }
+} catch (PDOException $e) {
     echo "Login misslyckades: " . $e->getMessage();
 }
 ?>
