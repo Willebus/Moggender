@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -6,8 +5,6 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-=======
->>>>>>> origin/master
 <?php
 $date = getdate(); //Kollar datumet just nu
 $day = $date['mday']; //Kollar dagen på $date
@@ -51,10 +48,7 @@ echo $daysInMonth . "<br/>";
 echo $selectedDay . "<br/>";
 ?>
 
-<<<<<<< HEAD
 <body>
-=======
->>>>>>> origin/master
 <table class="table">
     <tr>
         <th>Mån</th>
@@ -68,13 +62,8 @@ echo $selectedDay . "<br/>";
     <tr>
         <?php
         /* For loopen kollar först efter blanka rutor, det vill säga, om månaden börjar på en
-<<<<<<< HEAD
          * onsdag, så kommer den printa blanka rutor på måndag och tisdag.
          */
-=======
-           * onsdag, så kommer den printa blanka rutor på måndag och tisdag.
-           */
->>>>>>> origin/master
         for ($i = 0; $i <= $blank - 1; $i++) {
             //Denna if sats finns för att sätta veckonummer, även om
             if ($weekdayCount == 1) {
@@ -84,9 +73,6 @@ echo $selectedDay . "<br/>";
                 echo "<td>Nope</td>";
                 $weekdayCount++;
             }
-<<<<<<< HEAD
-HEAD;
-
         }
 
         /* $weekdayCount är en räknare som räknar upp hur många dagar som gått i veckan
@@ -117,5 +103,4 @@ HEAD;
     </tr>
 </table>
 <a class="btn btn-sm btn-danger" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a>
->>>>>>> origin/master
 
