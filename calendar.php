@@ -102,5 +102,27 @@ echo $selectedDay . "<br/>";
         ?>
     </tr>
 </table>
-<a class="btn btn-sm btn-danger" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a>
-
+<!--Tillfälliga knappar tills toolbaren finns-->
+<button class="btn btn-primary" data-toggle="modal" data-target="#newEvent"><span class="fa-stack">
+        <i class="fa fa-plus fa-stack-1x"></i>
+        <i class="fa fa-sticky-note-o fa-stack-2x"></i>
+    </span> Ny händelse
+</button>
+<div class="modal fade" id="newEvent" role="dialog" aria-labelledby="newEventLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="newEventLabel">Lägg till en ny händelse</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span><i class="fa fa-close"></i></span> Stäng</button>
+                <button type="submit" class="btn btn-primary"><span><i class="fa fa-check"></i></span> Spara</button>
+            </div>
+        </div>
+    </div>
+</div>
+<a class="btn btn-sm btn-danger" href="logout.php"><span><i class="fa fa-sign-out fa-lg"></i></span> Logga ut</a>
