@@ -1,13 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
 <?php
-
 include 'functions.php';
 
 $weekdayCount = 1;
@@ -18,7 +9,6 @@ echo $dayFirstOfMonth . "<br/>";
 echo $daysInMonth . "<br/>";
 echo $selectedDay . "<br/>";
 ?>
-<body>
 <div class="row">
     <div class="col-md-6 col-md-offset-2">
         <div class="panel panel-default">
@@ -104,7 +94,6 @@ echo $selectedDay . "<br/>";
         </div>
     </div>
 </div>
-<a class="btn btn-sm btn-danger" href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logga ut</a>
 <script>
     function monthForward() {
         $.ajax({
@@ -135,8 +124,6 @@ echo $selectedDay . "<br/>";
     }
 
 </script>
-</tr>
-</table>
 <!--Tillfälliga knappar tills toolbaren finns-->
 <button class="btn btn-primary" data-toggle="modal" data-target="#newEvent"><span class="fa-stack">
         <i class="fa fa-plus fa-stack-1x"></i>
@@ -146,13 +133,40 @@ echo $selectedDay . "<br/>";
 <div class="modal fade" id="newEvent" role="dialog" aria-labelledby="newEventLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" id="newEventHeader">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="newEventLabel">Lägg till en ny händelse</h4>
             </div>
             <div class="modal-body">
-                ...
+                <form method="POST" action="newEvent.php">
+                    <div class="form-group">
+                        <label for="newEventTitle" class="sr-only">Titel</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa"><strong>T</strong></i></span>
+                            <input class="form-control" id="newEventTitle" name="title" type="text"
+                                   placeholder="Titel" required/>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="newEventStartDate" class="sr-only">Start datum</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input class="form-control" id="newEventStartDate" name="startDate" type="datetime-local" required/>
+                        </div>
+                        <label for="newEventEndDate" class="sr-only">Slut datum</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            <input class="form-control" id="newEventEndDate" name="endDate" type="datetime-local" required/>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="wholeDay" value=""/>
+                                Heldags händelse
+                            </label>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><span><i
