@@ -1,13 +1,13 @@
 <?php
-require_once ("connection.php");
-include ("functions.php");
+require_once("connection.php");
+include("functions.php");
 
-if(isset($_POST["title"]) && isset($_POST["startDate"]) && isset($_POST["endDate"])) {
+if (isset($_POST["title"]) && isset($_POST["startDate"]) && isset($_POST["endDate"])) {
     $title = ($_POST["title"]);
     $startdate = ($_POST["startDate"]);
     $enddate = ($_POST["endDate"]);
 
-    $creator = ($_SESSION["UserID"]);
+    $creator = ($_SESSION["userid"]);
     $calendarid = ("SELECT CalendarID FROM calendar WHERE $creator = calendar.UserID");
 
     $stmt = $conn->prepare("INSERT INTO event (Creator, CalendarID, Title, StartDate, EndDate) VALUES (:Creator, :CalendarID, :Title, :StartDate, :EndDate)");
@@ -19,7 +19,7 @@ if(isset($_POST["title"]) && isset($_POST["startDate"]) && isset($_POST["endDate
         ":EndDate" => $enddate
     ));
 
-    if(isset($_POST["wholeDay"])){ //Checkbox för heldags händelse
+    if (isset($_POST["wholeDay"])) { //Checkbox för heldags händelse
 
     }
 }

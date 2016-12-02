@@ -1,4 +1,5 @@
 <?php
+require_once("connection.php");
 include 'functions.php';
 
 $weekdayCount = 1;
@@ -173,7 +174,8 @@ echo $selectedDay . "<br/>";
                     <button type="button" class="btn btn-default" data-dismiss="modal"><span><i
                                 class="fa fa-close"></i></span> Stäng
                     </button>
-                    <button type="submit" value="" class="btn btn-primary"><span><i class="fa fa-check"></i> Spara</span></button>
+                    <button type="submit" value="" class="btn btn-primary"><span><i
+                                class="fa fa-check"></i> Spara</span></button>
                 </div>
             </form>
         </div>

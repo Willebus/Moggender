@@ -5,6 +5,8 @@ $database = "calendar";
 $connUsername = "root";
 $connPassword = "";
 
+session_start();
+
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $connUsername, $connPassword);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
