@@ -138,8 +138,8 @@ echo $selectedDay . "<br/>";
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="newEventLabel">Lägg till en ny händelse</h4>
             </div>
-            <div class="modal-body">
-                <form method="POST" action="newEvent.php">
+            <form method="POST" action="newEvent.php">
+                <div class="modal-body">
                     <div class="form-group">
                         <label for="newEventTitle" class="sr-only">Titel</label>
                         <div class="input-group">
@@ -152,12 +152,14 @@ echo $selectedDay . "<br/>";
                         <label for="newEventStartDate" class="sr-only">Start datum</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            <input class="form-control" id="newEventStartDate" name="startDate" type="datetime-local" required/>
+                            <input class="form-control" id="newEventStartDate" name="startDate" type="datetime-local"
+                                   required/>
                         </div>
                         <label for="newEventEndDate" class="sr-only">Slut datum</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            <input class="form-control" id="newEventEndDate" name="endDate" type="datetime-local" required/>
+                            <input class="form-control" id="newEventEndDate" name="endDate" type="datetime-local"
+                                   required/>
                         </div>
                         <div class="checkbox">
                             <label>
@@ -166,14 +168,14 @@ echo $selectedDay . "<br/>";
                             </label>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span><i
-                            class="fa fa-close"></i></span> Stäng
-                </button>
-                <button type="submit" class="btn btn-primary"><span><i class="fa fa-check"></i></span> Spara</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span><i
+                                class="fa fa-close"></i></span> Stäng
+                    </button>
+                    <button type="submit" value="" class="btn btn-primary"><span><i class="fa fa-check"></i> Spara</span></button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

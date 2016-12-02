@@ -1,7 +1,7 @@
 <?php
 
 $servername = "localhost";
-$database = "calender";
+$database = "calendar";
 $connUsername = "root";
 $connPassword = "";
 

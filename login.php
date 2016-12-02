@@ -13,6 +13,7 @@ try {
     $rows = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($rows > 0) {
+        session_start();
         $_SESSION['username'] = $username; //Sätter sessionens användarnamn
     } else {
         echo "Användare ej hittad!";
